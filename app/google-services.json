@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "89066860207",
+    "firebase_url": "https://android-morpion.firebaseio.com",
+    "project_id": "android-morpion",
+    "storage_bucket": "android-morpion.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:89066860207:android:ac9a2b7e6bd19bb5cb2e5a",
+        "android_client_info": {
+          "package_name": "com.gougeonalzonne.android_morpion"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "89066860207-43ofqhn7iknprm0k2qppdlhdf3qpjkck.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFiarxm0AXaWulnnB08m676UuW1VcbM1w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "89066860207-43ofqhn7iknprm0k2qppdlhdf3qpjkck.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
