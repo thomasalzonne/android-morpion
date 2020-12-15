@@ -15,6 +15,6 @@
         android:id="@+id/nav_leaderboard"
         android:name="com.gougeonalzonne.android_morpion.ui.gallery.GalleryFragment"
         android:label="@string/leaderboard"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_leaderboard" />
 
 </navigation>
