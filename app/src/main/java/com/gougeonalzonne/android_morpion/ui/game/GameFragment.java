@@ -18,6 +18,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -174,6 +176,7 @@ public class GameFragment extends Fragment {
 
                                     //check if winner
                                     //check row
+
                                     winner = "";
                                     for (int i = 0; i < 3 ; i++) {
                                         if(grid.get(i * 3).equals(grid.get(i * 3 + 1)) && grid.get(i * 3 + 1).equals(grid.get(i * 3 + 2))) {
@@ -208,6 +211,8 @@ public class GameFragment extends Fragment {
                                     Button replay = getView().findViewById(R.id.replay);
                                     if(!winner.equals("")) {
                                         turn.setText("WINNER IS " + winner);
+                                        setScore(gameState.get("p1").toString());
+                                        setScore(gameState.get("p2").toString());
                                         replay.setAlpha((float) 1);
                                     }
                                     else {
@@ -226,5 +231,53 @@ public class GameFragment extends Fragment {
                 });
             }
         });
+    }
+
+    public boolean setScore(final String name) {
+
+        final FirebaseFirestore db = FirebaseFirestore.getInstance();
+        if(!username.equals(gameState.get("p1").toString())) {
+            return false;
+        }
+
+
+        DocumentReference user = db.collection("users").document(name);
+        user.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        Map<String, Object> entry = new HashMap<>();
+                        if(name.equals(winner)) {
+                            entry.put("win", document.getDouble("win") + 1);
+                        } else if (winner.equals("DRAW")) {
+                            entry.put("draw", document.getDouble("draw") + 1);
+                        }
+                        else {
+                            entry.put("lose", document.getDouble("lose") + 1);
+                        }
+                        db.collection("users").document(winner).update(entry);
+                    } else {
+                        Map<String, Object> entry = new HashMap<>();
+
+                        entry.put("win", 0);
+                        entry.put("draw", 0);
+                        entry.put("lose", 0);
+                        if(name.equals(winner)) {
+                            entry.put("win", 1);
+                        } else if (winner.equals("DRAW")) {
+                            entry.put("draw", 1);
+                        }
+                        else {
+                            entry.put("lose", 1);
+                        }
+                        entry.put("pseudo", name);
+                        db.collection("users").document(name).set(entry);
+                    }
+                }
+            }
+        });
+        return true;
     }
 }
