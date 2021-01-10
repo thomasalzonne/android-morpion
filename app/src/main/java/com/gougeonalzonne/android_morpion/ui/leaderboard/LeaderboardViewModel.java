@@ -1,6 +1,4 @@
-package com.gougeonalzonne.android_morpion.ui.gallery;
-
-import android.widget.ListView;
+package com.gougeonalzonne.android_morpion.ui.leaderboard;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

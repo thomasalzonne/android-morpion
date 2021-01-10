@@ -10,4 +10,5 @@
     <string name="matchmaking">Matchmaking</string>
     <string name="leaderboard">Leaderboard</string>
     <string name="login">Login</string>
+    <string name="game">Partie</string>
 </resources>

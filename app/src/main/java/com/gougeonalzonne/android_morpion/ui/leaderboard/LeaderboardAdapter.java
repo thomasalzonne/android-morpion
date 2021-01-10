@@ -1,4 +1,4 @@
-package com.gougeonalzonne.android_morpion.ui.gallery;
+package com.gougeonalzonne.android_morpion.ui.leaderboard;
 
 import java.util.ArrayList;
 import android.content.Context;

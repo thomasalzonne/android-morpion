@@ -3,18 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_matchmaking">
+    app:startDestination="@id/nav_login">
+
+    <fragment
+        android:id="@+id/nav_login"
+        android:name="com.gougeonalzonne.android_morpion.ui.login.LoginFragment"
+        android:label="@string/login"
+        tools:layout="@layout/fragment_login" />
 
     <fragment
         android:id="@+id/nav_matchmaking"
-        android:name="com.gougeonalzonne.android_morpion.ui.home.HomeFragment"
+        android:name="com.gougeonalzonne.android_morpion.ui.matchmaking.MatchmakingFragment"
         android:label="@string/matchmaking"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_matchmaking" />
 
     <fragment
         android:id="@+id/nav_leaderboard"
-        android:name="com.gougeonalzonne.android_morpion.ui.gallery.GalleryFragment"
+        android:name="com.gougeonalzonne.android_morpion.ui.leaderboard.LeaderboardFragment"
         android:label="@string/leaderboard"
         tools:layout="@layout/fragment_leaderboard" />
 
+    <fragment
+        android:id="@+id/nav_game"
+        android:name="com.gougeonalzonne.android_morpion.ui.game.GameFragment"
+        android:label="@string/game"
+        tools:layout="@layout/fragment_game" />
 </navigation>
